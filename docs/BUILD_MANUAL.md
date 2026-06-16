@@ -53,13 +53,12 @@ Signal path overview:
 | 1 | 40-pin female header ("Pi HAT" header) | Connects the carrier PCB to the Pi Zero 2W GPIO. | [Amazon B084Q4W1PW](https://www.amazon.com/dp/B084Q4W1PW) |
 | 1 | 1/4″ (6.35 mm) mono panel jack | Audio output. | [Amazon B08MT66VPX](https://www.amazon.com/dp/B08MT66VPX) |
 | 1 | USB-C female connector / breakout | Used to build a USB-C-female → micro-USB-male power lead for the Pi. | [Amazon B0DL5JJS5T](https://www.amazon.com/dp/B0DL5JJS5T) |
-| 1 | Addressable LED (APA106 / WS2811-compatible) | Single status LED. Driven on a dedicated GPIO. | — |
+| 1 | APA106 addressable LED | Single status LED. Driven on a dedicated GPIO. | [Amazon B071FND4WK](https://www.amazon.com/dp/B071FND4WK) |
 | 5 | Encoder knobs | Fit the EC11 6 mm D-shaft. Included in the enclosure 3MF. | [Section 3](#3-pcb-and-enclosure-files) |
 | — | Hookup wire, M2.5 standoffs/screws, solder | As needed for mounting and the USB-C power lead. | — |
 
-> **Note on the addressable LED:** The firmware drives a single APA106 /
-> WS2811-compatible LED (see `src/led_driver.cpp`). Any 5 V WS2811-family
-> addressable LED in the form factor that fits the PCB/enclosure will work.
+> **Note on the addressable LED:** The firmware drives a single APA106 LED (see
+> `src/led_driver.cpp`).
 
 ---
 

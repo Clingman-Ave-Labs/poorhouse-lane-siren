@@ -15,6 +15,13 @@ curl -fsSL https://raw.githubusercontent.com/Clingman-Ave-Labs/poorhouse-lane-si
 
 See [CLAUDE.md](CLAUDE.md) for testing, health-check, and deployment notes.
 
+## Documentation
+
+- [Build Manual](docs/BUILD_MANUAL.md) — bill of materials, PCB/enclosure files,
+  GPIO wiring reference, and hardware assembly.
+- [User Manual](docs/USER_MANUAL.md) — operation, controls, presets, web
+  interface, and first-install guide.
+
 ## Licensing
 
 This project is **source-available**, not OSI "open source" — the

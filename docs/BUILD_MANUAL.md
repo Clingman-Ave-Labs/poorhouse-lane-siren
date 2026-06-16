@@ -211,6 +211,12 @@ Recommended procedure (do this as the last step before closing the enclosure):
 4. Observe polarity and the data-in direction (data, 5 V, GND) while soldering —
    reversed data-in is the most common cause of a dark LED.
 5. Remove the cover if needed to finish/clean up, then proceed to final assembly.
+6. **Test, then insulate.** Power on and confirm the LED lights (see
+   [Section 8](#8-first-power-on-and-test)). Once it works, apply a small drop of
+   hot glue over the LED legs where they pass through the holder. If the holder is
+   metal, the bare legs can short against it — the glue insulates them and locks
+   the LED in place. Do this after soldering and testing so you don't seal in a
+   wiring mistake.
 
 > **Tip:** If you would rather not deal with the LED, the enclosure 3MF includes
 > a face plate **without** the LED hole — use it and skip this section entirely.

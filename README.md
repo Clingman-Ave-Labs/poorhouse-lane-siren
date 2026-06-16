@@ -15,6 +15,13 @@ curl -fsSL https://raw.githubusercontent.com/Clingman-Ave-Labs/poorhouse-lane-si
 
 See [CLAUDE.md](CLAUDE.md) for testing, health-check, and deployment notes.
 
+## Documentation
+
+- [Build Manual](docs/BUILD_MANUAL.md) — bill of materials, PCB/enclosure files,
+  GPIO wiring reference, and hardware assembly.
+- [User Manual](docs/USER_MANUAL.md) — operation, controls, presets, web
+  interface, and first-install guide.
+
 ## Licensing
 
 This project is **source-available**, not OSI "open source" — the
@@ -27,3 +34,14 @@ Definition.
   one, contact **parkredding@gmail.com**.
 
 See the [LICENSE](LICENSE) file for the full terms.
+
+## Enclosure
+
+The 3D-printable enclosure is hosted on MakerWorld:
+[Poorhouse Lane Siren Enclosure](https://makerworld.com/en/models/2940774-poorhouse-lane-siren-enclosure).
+
+It is a derivative work of the
+[Parametric Junction Box](https://makerworld.com/en/models/2219219-parametric-junction-box-modular-scalable)
+by **iLab**. Per the original's MakerWorld Exclusive License, derivative works
+must be hosted only on MakerWorld, so the model files are not included in this
+repository — download them from the link above.

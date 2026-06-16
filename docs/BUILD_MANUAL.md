@@ -78,6 +78,11 @@ Both fabrication files ship in this repository:
 settings (1.6 mm FR-4, HASL finish) are sufficient; no controlled impedance or
 special stackup is required.
 
+**Enclosure attribution:** The Poorhouse Siren enclosure is a derivative work of
+the [Parametric Junction Box](https://makerworld.com/en/models/2219219-parametric-junction-box-modular-scalable)
+by **iLab** on MakerWorld, adapted for the Poorhouse Siren PCB and panel
+cutouts. The derivative is published on MakerWorld: _(link to be added)_.
+
 ---
 
 ## 4. Tools Required

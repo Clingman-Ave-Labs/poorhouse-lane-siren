@@ -34,3 +34,10 @@ Definition.
   one, contact **parkredding@gmail.com**.
 
 See the [LICENSE](LICENSE) file for the full terms.
+
+## Credits
+
+- The enclosure is a derivative work of the
+  [Parametric Junction Box](https://makerworld.com/en/models/2219219-parametric-junction-box-modular-scalable)
+  by **iLab** on MakerWorld. The derivative is published on MakerWorld:
+  _(link to be added)_.

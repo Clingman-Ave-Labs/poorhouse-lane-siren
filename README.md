@@ -24,14 +24,11 @@ See [CLAUDE.md](CLAUDE.md) for testing, health-check, and deployment notes.
 
 ## Licensing
 
-This project is **source-available**, not OSI "open source" — the
-commercial-use restriction below is incompatible with the Open Source
-Definition.
-
-- **Non-commercial use** (personal, hobby, research, educational) is **free**
-  under the [PolyForm Noncommercial License 1.0.0](LICENSE).
-- **Commercial use** requires a separate **paid commercial license**. To obtain
-  one, contact **clingmanavelabs@gmail.com**.
+This project is **open source**, licensed under the
+[Apache License 2.0](LICENSE). You are free to use, modify, and distribute it —
+including for commercial purposes — subject to the terms of the license, which
+include preserving attribution and the license notice. The Apache 2.0 license
+also provides an express patent grant.
 
 See the [LICENSE](LICENSE) file for the full terms.
 

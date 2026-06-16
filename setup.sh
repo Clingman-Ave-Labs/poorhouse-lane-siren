@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # =============================================================================
-# Poorhouse Lane Siren V4 — Setup Script
+# Poorhouse Lane Siren v1.0 — Setup Script
 # Raspberry Pi Zero 2W Dub Siren Installer
 # =============================================================================
 
@@ -20,7 +20,7 @@ error()   { echo -e "${RED}[ERROR]${NC} $1"; }
 
 # --- Global variables --------------------------------------------------------
 SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
-REPO_URL="https://github.com/parkredding/poorhouse-lane-v4.git"
+REPO_URL="https://github.com/Clingman-Ave-Labs/poorhouse-lane-siren.git"
 REPO_BRANCH="${REPO_BRANCH:-main}"
 IS_PI_ZERO=false
 BOOT_CHANGED=false
@@ -37,7 +37,7 @@ check_root() {
 
     echo ""
     echo -e "${GREEN}=========================================${NC}"
-    echo -e "${GREEN}  Poorhouse Lane Siren V4 — Setup${NC}"
+    echo -e "${GREEN}  Poorhouse Lane Siren v1.0 — Setup${NC}"
     echo -e "${GREEN}=========================================${NC}"
     echo ""
 
@@ -363,7 +363,7 @@ install_service() {
 
     cat > /etc/systemd/system/dubsiren.service << EOF
 [Unit]
-Description=Poorhouse Lane Dub Siren V4
+Description=Poorhouse Lane Dub Siren v1.0
 Wants=sound.target
 After=sound.target ${data_mount_unit}
 Wants=${data_mount_unit}

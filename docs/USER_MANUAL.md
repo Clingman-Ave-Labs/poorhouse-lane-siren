@@ -27,6 +27,7 @@ _Clingman Ave Labs_
 17. [Techniques and Applications](#17-techniques-and-applications)
 18. [Troubleshooting](#18-troubleshooting)
 19. [Default Parameters](#19-default-parameters)
+- [Appendix A: First Install on a Clean Raspberry Pi](#appendix-a-first-install-on-a-clean-raspberry-pi)
 
 ---
 
@@ -704,3 +705,119 @@ The following values are applied at boot:
 | Delay Type | Tape |
 | FX Chain | Filter → Delay → Reverb |
 | Bank | User |
+
+---
+
+## Appendix A: First Install on a Clean Raspberry Pi
+
+This appendix covers building a Poorhouse Siren from a blank microSD card. Most
+users receive a pre-flashed unit and can skip directly to
+[Section 2: Getting Started](#2-getting-started). Follow this procedure only when
+provisioning a fresh Raspberry Pi Zero 2W or re-imaging a card.
+
+A single setup script handles the entire installation: it installs
+dependencies, configures the I2S DAC, builds the firmware, and (optionally) sets
+up autostart and kiosk mode.
+
+### A.1 Requirements
+
+- Raspberry Pi Zero 2W
+- microSD card (8 GB minimum, 16 GB recommended) and a card reader
+- A separate computer with the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+  installed
+- The assembled Poorhouse Siren hardware (I2S DAC and addressable LED wired to
+  the Pi)
+- A WiFi network with internet access (required to download dependencies and
+  build the firmware)
+
+### A.2 Flash Raspberry Pi OS
+
+1. Insert the microSD card into your computer and open Raspberry Pi Imager.
+2. For **Operating System**, choose **Raspberry Pi OS Lite (64-bit)**. The Lite
+   image (no desktop) is recommended — the siren runs headless.
+3. For **Storage**, select the microSD card.
+4. Open the **advanced/edit settings** menu (the gear icon) and configure:
+   - **Hostname** — e.g. `poorhouse`. This becomes the SSH name and is preserved
+     by the installer.
+   - **Enable SSH** with password authentication.
+   - **Username** — `pi` is the expected default. A different username also works;
+     the installer auto-detects it.
+   - **WiFi** — enter your network SSID, password, and country. This gives the Pi
+     internet access for the build.
+   - **Locale** — set your time zone and keyboard layout.
+5. Write the image, then safely eject the card.
+
+> **Note:** Pre-configuring WiFi here is the simplest path, because the build
+> step needs internet access. WiFi can also be configured later via AP mode
+> (see [Section 3](#3-wifi-configuration)), but the first install still requires
+> a network connection to download packages.
+
+### A.3 First Boot and SSH
+
+1. Insert the flashed microSD card into the Pi.
+2. Connect power. Allow 1–2 minutes for the first boot to expand the filesystem
+   and connect to WiFi.
+3. From your computer, connect over SSH using the hostname you set:
+
+   ```
+   ssh pi@poorhouse.local
+   ```
+
+   If `.local` does not resolve, find the Pi's IP address in your router's device
+   list and use `ssh pi@<ip-address>` instead.
+
+### A.4 Run the Installer
+
+From the SSH session, run the one-line installer:
+
+```
+curl -fsSL https://raw.githubusercontent.com/Clingman-Ave-Labs/poorhouse-lane-siren/main/setup.sh | sudo bash
+```
+
+The script performs the following automatically:
+
+- Detects the Pi Zero and creates a 1 GB swap file (required to build on limited
+  RAM).
+- Installs build dependencies (CMake, ALSA, GPIO, Avahi/mDNS, and AP-mode
+  tooling).
+- Builds and installs the `rpi_ws281x` LED library from source.
+- Configures the boot config for the I2S DAC (enables I2S, adds the HiFiBerry
+  DAC overlay, and disables onboard audio).
+- Writes the ALSA configuration for the PCM5102 DAC.
+- Creates the persistent `data/` directories for presets, MP3s, and config.
+- Installs the `dubsiren` systemd service.
+- Compiles the firmware binary.
+
+### A.5 Installer Prompts
+
+The script asks two questions:
+
+| Prompt | Default | Effect |
+|--------|---------|--------|
+| **Start dubsiren automatically on boot?** | Yes | Enables the `dubsiren.service` systemd unit so the siren launches at power-on. |
+| **Enable kiosk mode?** | No | Turns the Pi into a dedicated appliance: console auto-login, CLI-only boot, HDMI output disabled, screen blanking off, and a read-only overlay filesystem (with a writable `data/` directory so presets persist). Recommended for deployed units. |
+
+> **Recommendation:** Enable autostart for any unit that will be used as an
+> instrument. Enable kiosk mode for permanently deployed units — the read-only
+> filesystem protects the SD card from corruption on abrupt power loss.
+
+### A.6 Finishing Up
+
+When boot settings have changed, the installer offers to reboot. Accept the
+reboot to apply the I2S DAC configuration. After the unit comes back up:
+
+- If autostart was enabled, the siren is already running — hold **Trigger** to
+  confirm audio output (see [Section 2.3](#23-producing-sound)).
+- If autostart was disabled, start it manually:
+
+  ```
+  sudo systemctl enable --now dubsiren.service
+  ```
+
+- Verify the install at any time using the **Siren Health Check** command in
+  `CLAUDE.md`, which reports binary status, autostart/kiosk mode, and preset
+  persistence.
+
+The device is now ready for use. Configure or confirm WiFi as described in
+[Section 3](#3-wifi-configuration), then access the web interface at
+[http://poorhouse.local](#4-accessing-the-web-interface).

@@ -31,7 +31,7 @@ Definition.
 - **Non-commercial use** (personal, hobby, research, educational) is **free**
   under the [PolyForm Noncommercial License 1.0.0](LICENSE).
 - **Commercial use** requires a separate **paid commercial license**. To obtain
-  one, contact **parkredding@gmail.com**.
+  one, contact **clingmanavelabs@gmail.com**.
 
 See the [LICENSE](LICENSE) file for the full terms.
 

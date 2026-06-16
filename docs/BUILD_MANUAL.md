@@ -55,33 +55,36 @@ Signal path overview:
 | 1 | USB-C female connector / breakout | Used to build a USB-C-female → micro-USB-male power lead for the Pi. | [Amazon B0DL5JJS5T](https://www.amazon.com/dp/B0DL5JJS5T) |
 | 1 | APA106 addressable LED | **Optional.** Single status LED. Driven on a dedicated GPIO. | [Amazon B071FND4WK](https://www.amazon.com/dp/B071FND4WK) |
 | 1 | LED mounting holder/bezel | **Optional.** Holds the APA106 in the enclosure face. Only needed if fitting the LED. | [Amazon B0974DL4QR](https://www.amazon.com/dp/B0974DL4QR) |
-| 5 | Encoder knobs | Fit the EC11 6 mm D-shaft. Included in the enclosure 3MF. | [Section 3](#3-pcb-and-enclosure-files) |
+| 5 | Encoder knobs | Fit the EC11 6 mm D-shaft. Included in the MakerWorld enclosure model. | [Section 3](#3-pcb-and-enclosure-files) |
 | — | Hookup wire, M2.5 standoffs/screws, solder | As needed for mounting and the USB-C power lead. | — |
 
 > **Note on the addressable LED:** The firmware drives a single APA106 LED (see
-> `src/led_driver.cpp`). The LED is **optional** — the enclosure 3MF includes
-> face plates both with and without the LED hole. If you omit the LED, the
-> firmware still runs; only the visual status indicator is absent.
+> `src/led_driver.cpp`). The LED is **optional** — the MakerWorld enclosure
+> model includes face plates both with and without the LED hole. If you omit the
+> LED, the firmware still runs; only the visual status indicator is absent.
 
 ---
 
 ## 3. PCB and Enclosure Files
 
-Both fabrication files ship in this repository:
+The PCB is fabricated from the gerbers in this repository. The 3D-printable
+enclosure is hosted on MakerWorld (see the licensing note below).
 
-| File | Purpose |
-|------|---------|
+| File / Source | Purpose |
+|---------------|---------|
 | [`poorhouse-lane-siren-gerber.zip`](../poorhouse-lane-siren-gerber.zip) | Gerber package for the carrier PCB. Upload directly to any PCB fab house (JLCPCB, PCBWay, OSH Park, etc.). |
-| [`poorhouse_lane_siren_enclosure_and_knobs.3mf`](../poorhouse_lane_siren_enclosure_and_knobs.3mf) | 3D-printable enclosure and encoder knobs. Slice and print in PLA/PETG. |
+| [Poorhouse Lane Siren Enclosure (MakerWorld)](https://makerworld.com/en/models/2940774-poorhouse-lane-siren-enclosure) | 3D-printable enclosure, face plates, knobs, and toggle spacers. Download and slice for PLA/PETG. |
 
 **Ordering the PCB:** Upload `poorhouse-lane-siren-gerber.zip` as-is. Default
 settings (1.6 mm FR-4, HASL finish) are sufficient; no controlled impedance or
 special stackup is required.
 
-**Enclosure attribution:** The Poorhouse Siren enclosure is a derivative work of
+**Enclosure — hosted on MakerWorld only:** The enclosure is a derivative work of
 the [Parametric Junction Box](https://makerworld.com/en/models/2219219-parametric-junction-box-modular-scalable)
-by **iLab** on MakerWorld, adapted for the Poorhouse Siren PCB and panel
-cutouts. The derivative is published on MakerWorld: _(link to be added)_.
+by **iLab**, whose MakerWorld Exclusive License requires derivative works to be
+hosted only on MakerWorld. For that reason the model files are **not** included
+in this repository — download them from the MakerWorld listing instead:
+[Poorhouse Lane Siren Enclosure](https://makerworld.com/en/models/2940774-poorhouse-lane-siren-enclosure).
 
 ---
 
@@ -223,8 +226,9 @@ Recommended procedure (do this as the last step before closing the enclosure):
    the LED in place. Do this after soldering and testing so you don't seal in a
    wiring mistake.
 
-> **Tip:** If you would rather not deal with the LED, the enclosure 3MF includes
-> a face plate **without** the LED hole — use it and skip this section entirely.
+> **Tip:** If you would rather not deal with the LED, the MakerWorld enclosure
+> model includes a face plate **without** the LED hole — use it and skip this
+> section entirely.
 
 ---
 

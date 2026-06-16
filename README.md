@@ -35,9 +35,13 @@ Definition.
 
 See the [LICENSE](LICENSE) file for the full terms.
 
-## Credits
+## Enclosure
 
-- The enclosure is a derivative work of the
-  [Parametric Junction Box](https://makerworld.com/en/models/2219219-parametric-junction-box-modular-scalable)
-  by **iLab** on MakerWorld. The derivative is published on MakerWorld:
-  _(link to be added)_.
+The 3D-printable enclosure is hosted on MakerWorld:
+[Poorhouse Lane Siren Enclosure](https://makerworld.com/en/models/2940774-poorhouse-lane-siren-enclosure).
+
+It is a derivative work of the
+[Parametric Junction Box](https://makerworld.com/en/models/2219219-parametric-junction-box-modular-scalable)
+by **iLab**. Per the original's MakerWorld Exclusive License, derivative works
+must be hosted only on MakerWorld, so the model files are not included in this
+repository — download them from the link above.

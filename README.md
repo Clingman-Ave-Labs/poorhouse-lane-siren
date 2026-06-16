@@ -34,10 +34,3 @@ Definition.
   one, contact **parkredding@gmail.com**.
 
 See the [LICENSE](LICENSE) file for the full terms.
-
-## Credits
-
-- The parametric enclosure is based on the
-  [Parametric Junction Box — Modular, Scalable](https://makerworld.com/en/models/2219219-parametric-junction-box-modular-scalable)
-  model on MakerWorld, adapted for the Poorhouse Siren. Please honor the
-  original model's license terms.

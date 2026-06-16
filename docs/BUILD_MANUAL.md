@@ -53,12 +53,15 @@ Signal path overview:
 | 1 | 40-pin female header ("Pi HAT" header) | Connects the carrier PCB to the Pi Zero 2W GPIO. | [Amazon B084Q4W1PW](https://www.amazon.com/dp/B084Q4W1PW) |
 | 1 | 1/4″ (6.35 mm) mono panel jack | Audio output. | [Amazon B08MT66VPX](https://www.amazon.com/dp/B08MT66VPX) |
 | 1 | USB-C female connector / breakout | Used to build a USB-C-female → micro-USB-male power lead for the Pi. | [Amazon B0DL5JJS5T](https://www.amazon.com/dp/B0DL5JJS5T) |
-| 1 | APA106 addressable LED | Single status LED. Driven on a dedicated GPIO. | [Amazon B071FND4WK](https://www.amazon.com/dp/B071FND4WK) |
+| 1 | APA106 addressable LED | **Optional.** Single status LED. Driven on a dedicated GPIO. | [Amazon B071FND4WK](https://www.amazon.com/dp/B071FND4WK) |
+| 1 | LED mounting holder/bezel | **Optional.** Holds the APA106 in the enclosure face. Only needed if fitting the LED. | [Amazon B0974DL4QR](https://www.amazon.com/dp/B0974DL4QR) |
 | 5 | Encoder knobs | Fit the EC11 6 mm D-shaft. Included in the enclosure 3MF. | [Section 3](#3-pcb-and-enclosure-files) |
 | — | Hookup wire, M2.5 standoffs/screws, solder | As needed for mounting and the USB-C power lead. | — |
 
 > **Note on the addressable LED:** The firmware drives a single APA106 LED (see
-> `src/led_driver.cpp`).
+> `src/led_driver.cpp`). The LED is **optional** — the enclosure 3MF includes
+> face plates both with and without the LED hole. If you omit the LED, the
+> firmware still runs; only the visual status indicator is absent.
 
 ---
 
@@ -177,21 +180,45 @@ before soldering — most of these parts are not easily removed once seated.
 2. **PCM5102 DAC.** Mount the DAC to its footprint. Double-check the BCK/LRCK/DIN
    and power/ground pin order against [Section 5.5](#55-pcm5102-i2s-dac) before
    soldering.
-3. **Status LED.** Install the APA106/WS2811 LED, observing data-in direction and
-   polarity (data, 5 V, GND).
-4. **Rotary encoders (×5).** Seat all five EC11 encoders flush against the PCB and
+3. **Rotary encoders (×5).** Seat all five EC11 encoders flush against the PCB and
    solder. The mounting nut/washer secures them to the enclosure later.
-5. **Momentary buttons (×3).** Install the three 16 mm buttons. Their physical
+4. **Momentary buttons (×3).** Install the three 16 mm buttons. Their physical
    positions map to Preset (left), Bank/Shift (center), and Trigger (right) per
    the enclosure layout.
-6. **Pitch toggle.** Install the ON-OFF-ON toggle. Verify the center-off position
+5. **Pitch toggle.** Install the ON-OFF-ON toggle. Verify the center-off position
    mechanically before final mounting.
-7. **1/4″ output jack.** Wire/mount the panel jack to the audio output pads
+6. **1/4″ output jack.** Wire/mount the panel jack to the audio output pads
    (tip = signal, sleeve = GND for mono).
-8. **Pi Zero 2W.** Seat the Pi onto the 40-pin header. Secure with M2.5 standoffs.
+7. **Pi Zero 2W.** Seat the Pi onto the 40-pin header. Secure with M2.5 standoffs.
+8. **Status LED (optional — last electrical step).** Solder the APA106 *after*
+   everything else, fitted into its holder, so the LED ends up at the correct
+   height for the enclosure face. See [Section 6.1](#61-fitting-the-optional-led)
+   for the procedure. Skip this step if you are using the no-LED face plate.
 9. **Enclosure.** Mount the populated PCB into the printed enclosure, fit the
    knobs onto the encoder shafts, and fasten the panel hardware (encoder nuts,
    button nuts, toggle nut, and jack nut).
+
+### 6.1 Fitting the Optional LED
+
+The APA106 **cannot be mounted flush** to the PCB — its legs must stay long
+enough to reach through the LED holder/bezel in the enclosure face. Soldering it
+flat against the board will leave it too short to seat in the holder.
+
+Recommended procedure (do this as the last step before closing the enclosure):
+
+1. Press-fit the APA106 into the LED holder/bezel
+   ([B0974DL4QR](https://www.amazon.com/dp/B0974DL4QR)) installed in the
+   enclosure face plate.
+2. Pressure-fit the enclosure cover/face onto the assembled PCB so the LED is
+   held at its final installed height, legs spanning the gap to the board.
+3. With the LED held in position by the holder and cover, solder its legs to the
+   PCB. This guarantees the leg length matches the real cover-to-board distance.
+4. Observe polarity and the data-in direction (data, 5 V, GND) while soldering —
+   reversed data-in is the most common cause of a dark LED.
+5. Remove the cover if needed to finish/clean up, then proceed to final assembly.
+
+> **Tip:** If you would rather not deal with the LED, the enclosure 3MF includes
+> a face plate **without** the LED hole — use it and skip this section entirely.
 
 ---
 

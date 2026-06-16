@@ -3583,9 +3583,9 @@ int main(int argc, char *argv[])
     }
 
     // ── Banner ──────────────────────────────────────────────────────
-    slog("Poorhouse Lane - Siren V4 starting (%s @ %s)", GIT_BRANCH, GIT_COMMIT);
+    slog("Poorhouse Lane - Siren v1.0 starting (%s @ %s)", GIT_BRANCH, GIT_COMMIT);
     slog("ALSA device: %s  Mode: %s", device.c_str(), simulate ? "SIMULATE" : "GPIO");
-    printf("Poorhouse Lane - Siren V4\n");
+    printf("Poorhouse Lane - Siren v1.0\n");
     printf("Milestone 5: Full DSP Engine + Parameter Mapping\n");
     printf("  ALSA device : %s\n", device.c_str());
     printf("  Mode        : %s\n\n", simulate ? "SIMULATE" : "GPIO");

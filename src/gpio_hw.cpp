@@ -152,7 +152,7 @@ bool GpioHw::init(bool simulate, const HwCallbacks& cb)
 
     // Request all lines
     auto *rcfg = gpiod_request_config_new();
-    gpiod_request_config_set_consumer(rcfg, "siren-v4");
+    gpiod_request_config_set_consumer(rcfg, "siren-v1");
 
     d->request = gpiod_chip_request_lines(d->chip, rcfg, lcfg);
 

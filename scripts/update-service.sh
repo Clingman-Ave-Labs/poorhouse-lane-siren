@@ -51,6 +51,18 @@ if ! git config --global --get safe.directory "$INSTALL_DIR" >/dev/null 2>&1; th
     CHANGED=true
 fi
 
+# --- Ensure OTA origin points at the current (Clingman Ave Labs) repo --------
+# Devices first installed from the old repo still have its URL as origin, so
+# OTA updates would keep pulling from there.  Pin origin to the canonical repo.
+# Idempotent: only rewrites when the URL differs.
+EXPECTED_ORIGIN="https://github.com/Clingman-Ave-Labs/poorhouse-lane-siren.git"
+CURRENT_ORIGIN="$(git -C "$INSTALL_DIR" -c safe.directory="$INSTALL_DIR" remote get-url origin 2>/dev/null || true)"
+if [[ -n "$CURRENT_ORIGIN" && "$CURRENT_ORIGIN" != "$EXPECTED_ORIGIN" ]]; then
+    git -C "$INSTALL_DIR" -c safe.directory="$INSTALL_DIR" remote set-url origin "$EXPECTED_ORIGIN"
+    echo "Repointed origin → ${EXPECTED_ORIGIN}"
+    CHANGED=true
+fi
+
 # --- Reload systemd if anything changed -------------------------------------
 if $CHANGED; then
     systemctl daemon-reload

@@ -5,7 +5,7 @@
 Run on a fresh Raspberry Pi to install everything. Prompts for autostart and kiosk mode:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/parkredding/poorhouse-lane-v4/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/Clingman-Ave-Labs/poorhouse-lane-siren/main/setup.sh | sudo bash
 ```
 
 ## Testing on Raspberry Pi

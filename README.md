@@ -4,6 +4,9 @@ A standalone dub siren synthesizer for the Raspberry Pi Zero 2 W, with a
 built-in Wi-Fi config portal, OTA updates, and an I2S DAC audio path. This is
 the **v1.0** release from Clingman Ave Labs.
 
+<img width="4032" height="3024" alt="IMG_0279" src="https://github.com/user-attachments/assets/0f46bd5e-63da-4707-a0ce-b23d96914094" />
+
+
 ## Fresh Install (one-liner)
 
 Run on a fresh Raspberry Pi to install everything. Prompts for autostart and

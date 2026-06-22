@@ -6,6 +6,7 @@ the **v1.0** release from Clingman Ave Labs.
 
 <img width="4032" height="3024" alt="IMG_0279" src="https://github.com/user-attachments/assets/0f46bd5e-63da-4707-a0ce-b23d96914094" />
 
+https://youtu.be/j90-8aHwf38
 
 ## Fresh Install (one-liner)
 
